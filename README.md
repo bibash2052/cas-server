@@ -84,8 +84,11 @@ Debug the CAS web application as an executable WAR:
 ```bash
 ./gradlew[.bat] debug
 ```
-#Connecting to database
+##Connecting to database
 
 To connect to database change the cas.properties file inside {project_root}/etc/cas/config location.
 
 For this demo, PostgresSQL is used. Feel free to use any other database.
+
+##CAS-CLIENT
+Link to cas-client: https://github.com/bibash2052/cas-client

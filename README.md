@@ -17,36 +17,6 @@ To build the project, use:
 ./gradlew[.bat] clean build
 ```
 
-To see what commands are available to the build script, run:
-
-```bash
-./gradlew[.bat] tasks
-```
-
-To launch into the CAS command-line shell:
-
-```bash
-./gradlew[.bat] downloadShell runShell
-```
-
-To fetch and overlay a CAS resource or view, use:
-
-```bash
-./gradlew[.bat] getResource -PresourceName=[resource-name]
-```
-
-To list all available CAS views and templates:
-
-```bash
-./gradlew[.bat] listTemplateViews
-```
-
-To unzip and explode the CAS web application file and the internal resources jar:
-
-```bash
-./gradlew[.bat] explodeWar
-```
-
 # Configuration
 
 - The `etc` directory contains the configuration files and directories that need to be copied to `/etc/cas/config`.
@@ -114,35 +84,8 @@ Debug the CAS web application as an executable WAR:
 ```bash
 ./gradlew[.bat] debug
 ```
+#Connecting to database
 
-Run the CAS web application as a *standalone* executable WAR:
+To connect to database change the cas.properties file inside {project_root}/etc/cas/config location.
 
-```bash
-./gradlew[.bat] clean executable
-```
-
-## External
-
-Deploy the binary web application file `cas.war` after a successful build to a servlet container of choice.
-
-## Docker
-
-The following strategies outline how to build and deploy CAS Docker images.
-
-### Jib
-
-The overlay embraces the [Jib Gradle Plugin](https://github.com/GoogleContainerTools/jib) to provide easy-to-use out-of-the-box tooling for building CAS docker images. Jib is an open-source Java containerizer from Google that lets Java developers build containers using the tools they know. It is a container image builder that handles all the steps of packaging your application into a container image. It does not require you to write a Dockerfile or have Docker installed, and it is directly integrated into the overlay.
-
-```bash
-./gradlew build jibDockerBuild
-```
-
-### Dockerfile
-
-You can also use the native Docker tooling and the provided `Dockerfile` to build and run CAS.
-
-```bash
-chmod +x *.sh
-./docker-build.sh
-./docker-run.sh
-```
+For this demo, PostgresSQL is used. Feel free to use any other database.
